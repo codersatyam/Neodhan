@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/static/css/main.5755edbe.css",
+    "main.js": "/static/js/main.27f09008.js",
+    "static/media/business.png": "/static/media/business.be73966bb5e8905440af.png",
+    "static/media/payroll.png": "/static/media/payroll.319943e9a56a7f4ccf5d.png",
+    "static/media/main-new.png": "/static/media/main-new.a3295e77bdc37ea21e03.png",
+    "static/media/rohit.png": "/static/media/rohit.edd0c1eb82d9d3201656.png",
+    "static/media/main.png": "/static/media/main.1d9be55d829d5fab9de3.png",
+    "static/media/loan.png": "/static/media/loan.5ba2ddaf4334f3bb590a.png",
+    "static/media/msme.png": "/static/media/msme.738d5d00e76b1fc0c5e8.png",
+    "static/media/property.png": "/static/media/property.fccee8537e6307a8a773.png",
+    "static/media/why.png": "/static/media/why.0ebe6b787192e5400c2c.png",
+    "static/media/reviewer.png": "/static/media/reviewer.cc0f308a60828ab0f3c3.png",
+    "index.html": "/index.html",
+    "main.5755edbe.css.map": "/static/css/main.5755edbe.css.map",
+    "main.27f09008.js.map": "/static/js/main.27f09008.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.5755edbe.css",
+    "static/js/main.27f09008.js"
+  ]
+}

@@ -1,0 +1,195 @@
+/* --- Improved EMI Calculator Design --- */
+.emi-flex-wrap {
+  display: flex;
+  gap: 2.5rem;
+  align-items: flex-start;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 1.2rem;
+}
+
+.emi-form-col {
+  flex: 1 1 240px;
+  max-width: 420px;
+  min-width: 240px;
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0 8px 36px rgba(44,62,80,0.12);
+  padding: 4.2rem 2.2rem 2.2rem 2.2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2.1rem;
+  border: 1.5px solid #e6ecfa;
+}
+.emi-field-block {
+  margin-bottom: 0.5rem;
+}
+.emi-field-block label {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #1a237e;
+  margin-bottom: 0.3rem;
+  display: block;
+  letter-spacing: 0.01em;
+}
+.emi-input {
+  width: 100%;
+  padding: 0.9rem 1.2rem;
+  border: 1.5px solid #cfd8dc;
+  border-radius: 11px;
+  font-size: 1.13rem;
+  margin-top: 0.2rem;
+  margin-bottom: 0.3rem;
+  background: #f6f9ff;
+  transition: border 0.22s;
+  box-shadow: 0 1px 8px rgba(68,97,242,0.04);
+  font-weight: 500;
+}
+.emi-input:focus {
+  border: 1.5px solid #3b82f6;
+  background: #e3eefe;
+}
+.emi-helper {
+  color: #7b8794;
+  font-size: 0.99rem;
+  margin-top: 0.18rem;
+  margin-left: 2px;
+}
+.emi-slider-row {
+  display: flex;
+  align-items: center;
+  gap: 1.15rem;
+}
+.emi-slider {
+  flex: 1;
+  accent-color: #2563eb;
+  height: 4px;
+  background: #e0e7ef;
+  border-radius: 4px;
+}
+.emi-slider-value {
+  min-width: 66px;
+  font-size: 1.08rem;
+  font-weight: 700;
+  color: #1a237e;
+  background: #f6f9ff;
+  border-radius: 10px;
+  padding: 0.25rem 0.85rem;
+  margin-left: 0.6rem;
+  border: 1px solid #e6ecfa;
+  box-shadow: 0 1px 6px rgba(68,97,242,0.04);
+}
+.emi-slider-labels {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.98rem;
+  color: #7b8794;
+  margin-top: 0.1rem;
+  margin-bottom: 0.3rem;
+  padding: 0 2px;
+}
+
+.emi-summary-card {
+  flex: 1 1 340px;
+  max-width: 410px;
+  min-width: 220px;
+  background: linear-gradient(120deg, #0366d6 60%, #003a9b 100%);
+  color: #fff;
+  border-radius: 26px;
+  box-shadow: 0 12px 38px rgba(44,62,80,0.16);
+  padding: 2.5rem 2.2rem 2.5rem 2.2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  align-items: flex-start;
+  justify-content: flex-start;
+  border: 1.5px solid #e6ecfa;
+}
+.emi-summary-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 0.2rem;
+  letter-spacing: 0.01em;
+}
+.emi-summary-amount {
+  font-size: 2.7rem;
+  font-weight: 900;
+  margin-bottom: 0.1rem;
+  letter-spacing: -1px;
+}
+.emi-summary-desc {
+  font-size: 1.03rem;
+  color: #dbeafe;
+  margin-bottom: 0.4rem;
+}
+.emi-summary-row {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0.7rem 0 0.1rem 0;
+}
+.emi-summary-label {
+  font-size: 1.09rem;
+  color: #dbeafe;
+}
+.emi-summary-value {
+  font-size: 1.09rem;
+  font-weight: 800;
+  color: #fff;
+}
+.emi-summary-promo {
+  font-size: 1.33rem;
+  font-weight: 800;
+  margin-top: 0.9rem;
+  margin-bottom: 0.3rem;
+  color: #fff;
+}
+.emi-summary-small {
+  font-size: 1.03rem;
+  color: #dbeafe;
+  margin-bottom: 1.1rem;
+}
+.emi-summary-btn {
+  background: linear-gradient(90deg, #ff9100 60%, #ffb300 100%);
+  color: #1a237e;
+  font-weight: 800;
+  font-size: 1.13rem;
+  border: none;
+  border-radius: 11px;
+  padding: 1rem 0;
+  width: 100%;
+  margin-top: 0.7rem;
+  cursor: pointer;
+  box-shadow: 0 2px 12px rgba(44,62,80,0.10);
+  transition: background 0.18s, color 0.18s, box-shadow 0.18s;
+  letter-spacing: 0.01em;
+}
+.emi-summary-btn:hover {
+  background: linear-gradient(90deg, #ffb300 60%, #ff9100 100%);
+  color: #0366d6;
+  box-shadow: 0 4px 18px rgba(44,62,80,0.18);
+}
+
+/* --- Responsive --- */
+@media (max-width: 900px) {
+  .emi-flex-wrap {
+    flex-direction: column;
+    gap: 1.6rem;
+    align-items: stretch;
+  }
+  .emi-form-col, .emi-summary-card {
+    max-width: 99vw;
+    min-width: 0;
+    padding: 1.3rem 4vw 1.3rem 4vw;
+  }
+}
+@media (max-width: 650px) {
+  .emi-form-col, .emi-summary-card {
+    padding: 1rem 2vw 1rem 2vw;
+    border-radius: 13px;
+  }
+  .emi-summary-amount {
+    font-size: 2rem;
+  }
+}
