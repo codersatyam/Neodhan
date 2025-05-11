@@ -1,8 +1,8 @@
 import React from "react";
 import "./Contact.css";
 
-const COMPANY_PHONE = "+91-9876543210";
-const COMPANY_EMAIL = "contact@neodhan.com";
+const COMPANY_PHONE = "+91-8700866381";
+const COMPANY_EMAIL = "Rohit@neodhan.com";
 
 const Contact = () => {
   return (

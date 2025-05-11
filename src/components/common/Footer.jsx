@@ -26,7 +26,7 @@ function Footer() {
 
         <div className="footer-bottom">
           <p className="copyright">© 2025 Neodhan. All Rights Reserved.</p>
-          <p> Powered by TrueCredit</p>
+          <p> Powered by Nexus</p>
         </div>
       </div>
     </footer>
