@@ -7,7 +7,7 @@ import About from './components/pages/About';
 import Services from './components/pages/Services';
 import Contact from './components/pages/Contact';
 import './App.css';
-
+import { Analytics } from "@vercel/analytics/react"
 function App() {
   return (
     <Router>
@@ -22,7 +22,8 @@ function App() {
           </Routes>
         </main>
         <Footer />
-      </div>
+        <Analytics />
+        </div>
     </Router>
   );
 }
