@@ -8,7 +8,7 @@ function Footer() {
       <div className="footer-content">
         <div className="footer-main">
           <h2>Neodhan</h2>
-          <p>Brings you the best options, tailored to your needs, saving you time and money. Experience the difference today</p>
+          <p>Brings you the best options, tailored to your needs, saving your time and money. Experience the difference today</p>
           <Link to="/demo" className="get-started-button">
             Contact Us
           </Link>

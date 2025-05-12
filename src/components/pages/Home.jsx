@@ -231,7 +231,7 @@ export default function Home() {
                         <input
                           type="range"
                           min="5"
-                          max="30"
+                          max="36"
                           step="0.1"
                           value={interestRate || 5}
                           onChange={handleInputChange(setInterestRate)}
@@ -239,7 +239,7 @@ export default function Home() {
                         />
                         <div className="range-labels">
                           <span>5%</span>
-                          <span>30%</span>
+                          <span>36%</span>
                         </div>
                       </div>
                     </label>

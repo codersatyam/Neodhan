@@ -23,6 +23,7 @@ const Contact = () => {
           <div className="contact-row">
             <span className="contact-label">Phone:</span>
             <a href={`tel:${COMPANY_PHONE}`} className="contact-link">{COMPANY_PHONE}</a>
+            <span className="contact-hours"> (Timing: 9 am to 6 pm)</span>
           </div>
           <div className="contact-row">
             <span className="contact-label">Email:</span>
