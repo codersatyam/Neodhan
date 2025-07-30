@@ -11,7 +11,14 @@ function Header() {
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
+      const scrollY = window.scrollY;
+      if (scrollY > 100) {
+        setScrolled('scrolled-more');
+      } else if (scrollY > 50) {
+        setScrolled('scrolled');
+      } else {
+        setScrolled(false);
+      }
     };
 
     window.addEventListener('scroll', handleScroll);
@@ -33,7 +40,7 @@ function Header() {
   };
 
   return (
-    <header className={`header${scrolled ? ' scrolled' : ''}`}>
+    <header className={`header${scrolled ? ` ${scrolled}` : ''}`}>
       <div className="header-content">
         {/* Logo */}
         <Link to="/" className="logo" onClick={handleNavLinkClick}>
@@ -55,6 +62,13 @@ function Header() {
               <span className="nav-text">Home</span>
             </Link>
             <Link
+              to="/about"
+              className={`nav-link ${location.pathname === '/about' ? 'active' : ''}`}
+              onClick={handleNavLinkClick}
+            >
+              <span className="nav-text">About Us</span>
+            </Link>
+            <Link
               to="/services"
               className={`nav-link ${location.pathname === '/services' ? 'active' : ''}`}
               onClick={handleNavLinkClick}
@@ -62,11 +76,25 @@ function Header() {
               <span className="nav-text">Services</span>
             </Link>
             <Link
-              to="/about"
-              className={`nav-link ${location.pathname === '/about' ? 'active' : ''}`}
+              to="/blog"
+              className={`nav-link ${location.pathname === '/blog' ? 'active' : ''}`}
               onClick={handleNavLinkClick}
             >
-              <span className="nav-text">About Us</span>
+              <span className="nav-text">Blog</span>
+            </Link>
+            <Link
+              to="/careers"
+              className={`nav-link ${location.pathname === '/careers' ? 'active' : ''}`}
+              onClick={handleNavLinkClick}
+            >
+              <span className="nav-text">Careers</span>
+            </Link>
+            <Link
+              to="/referral-program"
+              className={`nav-link ${location.pathname === '/referral-program' ? 'active' : ''}`}
+              onClick={handleNavLinkClick}
+            >
+              <span className="nav-text">Referral Program</span>
             </Link>
             <Link
               to="/contact"
@@ -105,11 +133,20 @@ function Header() {
           <Link to="/" className={`mobile-link ${location.pathname === '/' ? 'active' : ''}`} onClick={handleNavLinkClick}>
             Home
           </Link>
+          <Link to="/about" className={`mobile-link ${location.pathname === '/about' ? 'active' : ''}`} onClick={handleNavLinkClick}>
+            About Us
+          </Link>
           <Link to="/services" className={`mobile-link ${location.pathname === '/services' ? 'active' : ''}`} onClick={handleNavLinkClick}>
             Services
           </Link>
-          <Link to="/about" className={`mobile-link ${location.pathname === '/about' ? 'active' : ''}`} onClick={handleNavLinkClick}>
-            About Us
+          <Link to="/blog" className={`mobile-link ${location.pathname === '/blog' ? 'active' : ''}`} onClick={handleNavLinkClick}>
+            Blog
+          </Link>
+          <Link to="/careers" className={`mobile-link ${location.pathname === '/careers' ? 'active' : ''}`} onClick={handleNavLinkClick}>
+            Careers
+          </Link>
+          <Link to="/referral-program" className={`mobile-link ${location.pathname === '/referral-program' ? 'active' : ''}`} onClick={handleNavLinkClick}>
+            Referral Program
           </Link>
           <Link to="/contact" className={`mobile-link ${location.pathname === '/contact' ? 'active' : ''}`} onClick={handleNavLinkClick}>
             Contact

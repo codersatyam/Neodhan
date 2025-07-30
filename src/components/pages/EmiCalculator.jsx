@@ -8,8 +8,8 @@ function calculateEMI(P, R, N) {
 }
 
 export default function EmiCalculator() {
-  const [amount, setAmount] = useState(25000);
-  const [rate, setRate] = useState(5);
+  const [amount, setAmount] = useState(8500);
+  const [rate, setRate] = useState(10);
   const [years, setYears] = useState(5);
   const months = years * 12;
   const emi = calculateEMI(amount, rate, months);
@@ -24,8 +24,8 @@ export default function EmiCalculator() {
           <input
             id="loan-amount"
             type="number"
-            min="1000"
-            max="10000000"
+            min="8500"
+            max="5000000"
             step="1000"
             value={amount}
             onChange={e => setAmount(Number(e.target.value))}
@@ -39,9 +39,9 @@ export default function EmiCalculator() {
             <input
               id="interest-rate"
               type="range"
-              min="0.01"
-              max="20"
-              step="0.01"
+              min="10"
+              max="48"
+              step="0.1"
               value={rate}
               onChange={e => setRate(Number(e.target.value))}
               className="emi-slider"
@@ -49,8 +49,8 @@ export default function EmiCalculator() {
             <span className="emi-slider-value">{rate}%</span>
           </div>
           <div className="emi-slider-labels">
-            <span>0.01%</span>
-            <span>20%</span>
+            <span>10%</span>
+            <span>48%</span>
           </div>
           <div className="emi-helper">Annual interest rate on the loan.</div>
         </div>
