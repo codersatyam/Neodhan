@@ -7,18 +7,18 @@ import logo1 from '../../assets/images/logo1.png';
 function Header() {
   const location = useLocation();
   const [menuOpen, setMenuOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
+  const [scrollProgress, setScrollProgress] = useState(0);
 
   useEffect(() => {
     const handleScroll = () => {
       const scrollY = window.scrollY;
-      if (scrollY > 100) {
-        setScrolled('scrolled-more');
-      } else if (scrollY > 50) {
-        setScrolled('scrolled');
-      } else {
-        setScrolled(false);
-      }
+      const windowHeight = window.innerHeight;
+      const documentHeight = document.documentElement.scrollHeight;
+      const maxScroll = documentHeight - windowHeight;
+      
+      // Calculate scroll progress (0 to 1)
+      const progress = Math.min(scrollY / Math.max(maxScroll, 1), 1);
+      setScrollProgress(progress);
     };
 
     window.addEventListener('scroll', handleScroll);
@@ -40,7 +40,12 @@ function Header() {
   };
 
   return (
-    <header className={`header${scrolled ? ` ${scrolled}` : ''}`}>
+    <header 
+      className="header" 
+      style={{
+        '--scroll-progress': scrollProgress
+      }}
+    >
       <div className="header-content">
         {/* Logo */}
         <Link to="/" className="logo" onClick={handleNavLinkClick}>
