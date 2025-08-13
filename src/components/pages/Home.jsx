@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './Home.css';
 import EmiCalculator from './EmiCalculator';
+import PartnersCarousel from '../common/PartnersCarousel';
 import heroImg from '../../assets/images/loan.png';
 import step1 from '../../assets/images/personlaLoan.png';
 import step2 from '../../assets/images/business.png';
@@ -97,30 +98,67 @@ export default function Home() {
       <div className="above-fold">
         {/* HERO SECTION */}
         <section className="hero-section">
-          {/* Decorative animated blobs background */}
-          <div className="hero-blobs">
-            <div className="blob blob1" />
-            <div className="blob blob2" />
-            <div className="blob blob3" />
+          {/* Background Animation */}
+          <div className="hero-bg-animation">
+            {[...Array(8)].map((_, i) => (
+              <span key={i} className="hero-animated-circle" style={{
+                left: `${Math.random() * 100}%`,
+                animationDelay: `${Math.random() * 4}s`,
+                animationDuration: `${3 + Math.random() * 4}s`
+              }} />
+            ))}
           </div>
+          
           <div className="hero-container">
             <div className="hero-content">
-              <h1>Get the Best Loan for Your Needs</h1>
-              <p className="hero-sub">Compare, calculate, and apply for loans in minutes. 100% online, secure, and transparent.</p>
-              <Link to="/contact" className="hero-cta">Contact Us</Link>
+              <span className="hero-tag">Fintech Innovation</span>
+              <h1>Transform Your <span className="gradient-text">Financial Future</span></h1>
+              <p className="hero-sub">Experience lightning-fast loan approvals with our AI-powered platform. Get funds in your account within 24 hours with zero hidden charges.</p>
+              <div className="hero-cta-group">
+                <Link to="/contact" className="hero-cta primary">Get Started Now</Link>
+                <Link to="/services" className="hero-cta secondary">Explore Services</Link>
+              </div>
+              <div className="hero-stats">
+                <div className="stat-item">
+                  <span className="stat-number">₹5Cr+</span>
+                  <span className="stat-label">Loans Disbursed</span>
+                </div>
+                <div className="stat-item">
+                  <span className="stat-number">10K+</span>
+                  <span className="stat-label">Happy Customers</span>
+                </div>
+                <div className="stat-item">
+                  <span className="stat-number">95%</span>
+                  <span className="stat-label">Approval Rate</span>
+                </div>
+              </div>
             </div>
             <div className="hero-img">
-              <img src={mainNew} alt="Loan Hero" />
+              <div className="hero-img-container">
+                <img src={mainNew} alt="Loan Hero" />
+                <div className="hero-img-glow"></div>
+              </div>
             </div>
           </div>
         </section>
 
         {/* LOAN PROCESS FLOW SECTION */}
         <section className="loan-process-section">
+          {/* Background Animation */}
+          <div className="process-bg-animation">
+            {[...Array(6)].map((_, i) => (
+              <span key={i} className="process-animated-circle" style={{
+                left: `${Math.random() * 100}%`,
+                animationDelay: `${Math.random() * 4}s`,
+                animationDuration: `${3 + Math.random() * 4}s`
+              }} />
+            ))}
+          </div>
+          
           <div className="process-header">
-            <span className="process-tag">HOW IT WORKS</span>
-            <h2>Simple & Easy Process</h2>
-            <p className="process-description">Get your loan approved in just a few simple steps</p>
+            <span className="process-tag">Streamlined Process</span>
+            <h2>Get Your Loan in <span className="gradient-text">4 Simple Steps</span></h2>
+            <p className="process-description">Our AI-powered platform ensures lightning-fast processing with maximum security</p>
           </div>
           <div className="process-timeline">
             <div className="process-step">
@@ -129,10 +167,11 @@ export default function Home() {
                   <img src={require('../../assets/images/payroll.png')} alt="Application" />
                 </div>
                 <div className="step-number">01</div>
+                <div className="step-glow"></div>
               </div>
               <div className="step-content">
                 <h3>Submit Application</h3>
-                <p>Fill out our simple online application form with your basic details</p>
+                <p>Fill out our intelligent online form with minimal documentation required</p>
               </div>
               <div className="step-connector"></div>
             </div>
@@ -143,10 +182,11 @@ export default function Home() {
                   <img src={require('../../assets/images/reviewer.png')} alt="Review" />
                 </div>
                 <div className="step-number">02</div>
+                <div className="step-glow"></div>
               </div>
               <div className="step-content">
-                <h3>Document Review</h3>
-                <p>Our team reviews your application and verifies the documents</p>
+                <h3>AI-Powered Review</h3>
+                <p>Our advanced AI system instantly analyzes and verifies your application</p>
               </div>
               <div className="step-connector"></div>
             </div>
@@ -157,10 +197,11 @@ export default function Home() {
                   <img src={require('../../assets/images/business.png')} alt="Approval" />
                 </div>
                 <div className="step-number">03</div>
+                <div className="step-glow"></div>
               </div>
               <div className="step-content">
-                <h3>Loan Approval</h3>
-                <p>Get instant approval decision based on your eligibility</p>
+                <h3>Instant Approval</h3>
+                <p>Receive approval decision within minutes with our real-time processing</p>
               </div>
               <div className="step-connector"></div>
             </div>
@@ -171,10 +212,11 @@ export default function Home() {
                   <img src={require('../../assets/images/loan.png')} alt="Disbursement" />
                 </div>
                 <div className="step-number">04</div>
+                <div className="step-glow"></div>
               </div>
               <div className="step-content">
                 <h3>Quick Disbursement</h3>
-                <p>Receive funds directly in your bank account within 24 hours</p>
+                <p>Get funds in your account within 24 hours with zero processing fees</p>
               </div>
             </div>
           </div>
@@ -186,9 +228,9 @@ export default function Home() {
         <div className="emi-container">
           <div className="emi-content">
             <div className="emi-header">
-              <span className="section-tag">Calculator</span>
-              <h2>Loan EMI Calculator</h2>
-              <p>Plan your loan better with our easy EMI calculator</p>
+              <span className="section-tag">Smart Calculator</span>
+              <h2>Advanced <span className="gradient-text">EMI Calculator</span></h2>
+              <p>Plan your financial journey with our intelligent EMI calculator. Get instant calculations with real-time updates.</p>
             </div>
 
             <div className="calculator-grid">
@@ -208,15 +250,15 @@ export default function Home() {
                       <div className="slider-container">
                         <input
                           type="range"
-                          min="100000"
+                          min="8500"
                           max="5000000"
-                          step="10000"
-                          value={loanAmount || 100000}
+                          step="1000"
+                          value={loanAmount || 8500}
                           onChange={handleInputChange(setLoanAmount)}
                           className="range-slider"
                         />
                         <div className="range-labels">
-                          <span>₹1L</span>
+                          <span>₹8.5K</span>
                           <span>₹50L</span>
                         </div>
                       </div>
@@ -230,16 +272,16 @@ export default function Home() {
                       <div className="slider-container">
                         <input
                           type="range"
-                          min="5"
-                          max="36"
+                          min="10"
+                          max="48"
                           step="0.1"
-                          value={interestRate || 5}
+                          value={interestRate || 10}
                           onChange={handleInputChange(setInterestRate)}
                           className="range-slider"
                         />
                         <div className="range-labels">
-                          <span>5%</span>
-                          <span>36%</span>
+                          <span>10%</span>
+                          <span>48%</span>
                         </div>
                       </div>
                     </label>
@@ -347,28 +389,47 @@ export default function Home() {
 
       {/* TESTIMONIALS SECTION */}
       <section className="testimonials-section modern-testimonials">
+        {/* Background Animation */}
+        <div className="testimonials-bg-animation">
+          {[...Array(5)].map((_, i) => (
+            <span key={i} className="testimonials-animated-circle" style={{
+              left: `${Math.random() * 100}%`,
+              animationDelay: `${Math.random() * 4}s`,
+              animationDuration: `${3 + Math.random() * 4}s`
+            }} />
+          ))}
+        </div>
+        
         <div className="testimonials-header">
-          <span className="testimonials-subtitle">Testimonial</span>
-          <h2 className="testimonials-title">We Care About Our Customers<br/>Experience Too</h2>
+          <span className="testimonials-subtitle">Customer Success</span>
+          <h2 className="testimonials-title">Trusted by <span className="gradient-text">10,000+</span> Happy Customers</h2>
+          <p className="testimonials-description">Real stories from real people who transformed their financial lives with Neodhan</p>
         </div>
         <div className="modern-testimonials-grid">
           {testimonials.map((t, idx) => (
             <div key={idx} className="modern-testimonial-card">
-              <div className="modern-testimonial-avatar">
-                <img src={t.img} alt={t.name} />
-              </div>
-              <div className="modern-testimonial-name">{t.name}</div>
-              <div className="modern-testimonial-role">{t.role}</div>
-              <div className="modern-testimonial-text">{t.text}</div>
-              <div className="modern-testimonial-stars">
-                {[...Array(t.stars)].map((_, i) => (
-                  <span key={i} className="star">★</span>
-                ))}
+              <div className="testimonial-card-inner">
+                <div className="modern-testimonial-avatar">
+                  <img src={t.img} alt={t.name} />
+                  <div className="avatar-glow"></div>
+                </div>
+                <div className="modern-testimonial-name">{t.name}</div>
+                <div className="modern-testimonial-role">{t.role}</div>
+                <div className="modern-testimonial-text">{t.text}</div>
+                <div className="modern-testimonial-stars">
+                  {[...Array(t.stars)].map((_, i) => (
+                    <span key={i} className="star">★</span>
+                  ))}
+                </div>
+                <div className="testimonial-glow"></div>
               </div>
             </div>
           ))}
         </div>
       </section>
+
+      {/* PARTNERS SECTION */}
+      <PartnersCarousel />
     </div>
   );
 }

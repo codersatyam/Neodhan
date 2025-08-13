@@ -7,11 +7,18 @@ import logo1 from '../../assets/images/logo1.png';
 function Header() {
   const location = useLocation();
   const [menuOpen, setMenuOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
+  const [scrollProgress, setScrollProgress] = useState(0);
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
+      const scrollY = window.scrollY;
+      const windowHeight = window.innerHeight;
+      const documentHeight = document.documentElement.scrollHeight;
+      const maxScroll = documentHeight - windowHeight;
+      
+      // Calculate scroll progress (0 to 1)
+      const progress = Math.min(scrollY / Math.max(maxScroll, 1), 1);
+      setScrollProgress(progress);
     };
 
     window.addEventListener('scroll', handleScroll);
@@ -33,7 +40,12 @@ function Header() {
   };
 
   return (
-    <header className={`header${scrolled ? ' scrolled' : ''}`}>
+    <header 
+      className="header" 
+      style={{
+        '--scroll-progress': scrollProgress
+      }}
+    >
       <div className="header-content">
         {/* Logo */}
         <Link to="/" className="logo" onClick={handleNavLinkClick}>
@@ -55,6 +67,13 @@ function Header() {
               <span className="nav-text">Home</span>
             </Link>
             <Link
+              to="/about"
+              className={`nav-link ${location.pathname === '/about' ? 'active' : ''}`}
+              onClick={handleNavLinkClick}
+            >
+              <span className="nav-text">About Us</span>
+            </Link>
+            <Link
               to="/services"
               className={`nav-link ${location.pathname === '/services' ? 'active' : ''}`}
               onClick={handleNavLinkClick}
@@ -62,11 +81,25 @@ function Header() {
               <span className="nav-text">Services</span>
             </Link>
             <Link
-              to="/about"
-              className={`nav-link ${location.pathname === '/about' ? 'active' : ''}`}
+              to="/blog"
+              className={`nav-link ${location.pathname === '/blog' ? 'active' : ''}`}
               onClick={handleNavLinkClick}
             >
-              <span className="nav-text">About Us</span>
+              <span className="nav-text">Blog</span>
+            </Link>
+            <Link
+              to="/careers"
+              className={`nav-link ${location.pathname === '/careers' ? 'active' : ''}`}
+              onClick={handleNavLinkClick}
+            >
+              <span className="nav-text">Careers</span>
+            </Link>
+            <Link
+              to="/referral-program"
+              className={`nav-link ${location.pathname === '/referral-program' ? 'active' : ''}`}
+              onClick={handleNavLinkClick}
+            >
+              <span className="nav-text">Referral Program</span>
             </Link>
             <Link
               to="/contact"
@@ -105,11 +138,20 @@ function Header() {
           <Link to="/" className={`mobile-link ${location.pathname === '/' ? 'active' : ''}`} onClick={handleNavLinkClick}>
             Home
           </Link>
+          <Link to="/about" className={`mobile-link ${location.pathname === '/about' ? 'active' : ''}`} onClick={handleNavLinkClick}>
+            About Us
+          </Link>
           <Link to="/services" className={`mobile-link ${location.pathname === '/services' ? 'active' : ''}`} onClick={handleNavLinkClick}>
             Services
           </Link>
-          <Link to="/about" className={`mobile-link ${location.pathname === '/about' ? 'active' : ''}`} onClick={handleNavLinkClick}>
-            About Us
+          <Link to="/blog" className={`mobile-link ${location.pathname === '/blog' ? 'active' : ''}`} onClick={handleNavLinkClick}>
+            Blog
+          </Link>
+          <Link to="/careers" className={`mobile-link ${location.pathname === '/careers' ? 'active' : ''}`} onClick={handleNavLinkClick}>
+            Careers
+          </Link>
+          <Link to="/referral-program" className={`mobile-link ${location.pathname === '/referral-program' ? 'active' : ''}`} onClick={handleNavLinkClick}>
+            Referral Program
           </Link>
           <Link to="/contact" className={`mobile-link ${location.pathname === '/contact' ? 'active' : ''}`} onClick={handleNavLinkClick}>
             Contact

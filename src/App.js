@@ -6,6 +6,9 @@ import Home from './components/pages/Home';
 import About from './components/pages/About';
 import Services from './components/pages/Services';
 import Contact from './components/pages/Contact';
+import Careers from './components/pages/Careers';
+import Blog from './components/pages/Blog';
+import ReferralProgram from './components/pages/ReferralProgram';
 import './App.css';
 import { Analytics } from "@vercel/analytics/react"
 function App() {
@@ -19,6 +22,9 @@ function App() {
             <Route path="/about" element={<About />} />
             <Route path="/services" element={<Services />} />
             <Route path="/contact" element={<Contact />} />
+                    <Route path="/careers" element={<Careers />} />
+        <Route path="/blog" element={<Blog />} />
+        <Route path="/referral-program" element={<ReferralProgram />} />
           </Routes>
         </main>
         <Footer />
