@@ -1,15 +1,8 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './Home.css';
-import EmiCalculator from './EmiCalculator';
 import PartnersCarousel from '../common/PartnersCarousel';
-import heroImg from '../../assets/images/loan.png';
-import step1 from '../../assets/images/personlaLoan.png';
-import step2 from '../../assets/images/business.png';
-import step3 from '../../assets/images/salaried.png';
 import reviewer from '../../assets/images/reviewer.png';
-import main from "../../assets/images/main.png"
-import mainNew from "../../assets/images/main-new.png"
 
 const testimonials = [
   {
@@ -39,26 +32,55 @@ function renderStars(count) {
 }
 
 export default function Home() {
-  const [loanAmount, setLoanAmount] = useState('100000');
-  const [interestRate, setInterestRate] = useState('5');
-  const [loanTenure, setLoanTenure] = useState('6');
+  const [loanAmount, setLoanAmount] = useState(100000);
+  const [interestRate, setInterestRate] = useState(10);
+  const [loanTenure, setLoanTenure] = useState(12);
+  const [loanType, setLoanType] = useState('personal');
   const [isUpdating, setIsUpdating] = useState(false);
+
+  const loanTypes = [
+    { value: 'personal', label: 'Personal Loan', icon: '👤' },
+    { value: 'business', label: 'Business Loan', icon: '💼' },
+    { value: 'home', label: 'Home Loan', icon: '🏠' },
+    { value: 'vehicle', label: 'Vehicle Loan', icon: '🚗' }
+  ];
 
   const handleInputChange = (setter) => (e) => {
     const value = parseFloat(e.target.value);
-    setter(value);
-    
-    // Calculate and set the percentage for the gradient
-    const min = parseFloat(e.target.min);
-    const max = parseFloat(e.target.max);
-    const percent = (value - min) / (max - min);
-    e.target.style.setProperty('--value-percent', percent);
+    if (!isNaN(value) && value >= 0) {
+      setter(value);
+      // Add visual feedback
+      setIsUpdating(true);
+      setTimeout(() => setIsUpdating(false), 300);
+    }
+  };
+
+  const handleSliderChange = (setter, min, max) => (e) => {
+    const value = parseFloat(e.target.value);
+    if (!isNaN(value) && value >= min && value <= max) {
+      setter(value);
+      // Add visual feedback
+      setIsUpdating(true);
+      setTimeout(() => setIsUpdating(false), 300);
+    }
+  };
+
+  const handleLoanTypeChange = (type) => {
+    setLoanType(type);
+    // Auto-adjust rates based on loan type
+    const rates = {
+      personal: 10,
+      business: 12,
+      home: 8.5,
+      vehicle: 9.5
+    };
+    setInterestRate(rates[type]);
     setIsUpdating(true);
     setTimeout(() => setIsUpdating(false), 300);
   };
 
   const formatCurrency = (amount) => {
-    if (!amount) return '0';
+    if (!amount || isNaN(amount)) return '0';
     return new Intl.NumberFormat('en-IN', {
       maximumFractionDigits: 0
     }).format(amount);
@@ -70,6 +92,8 @@ export default function Home() {
     const monthlyRate = parseFloat(interestRate) / 12 / 100;
     const months = parseFloat(loanTenure);
   
+    if (monthlyRate === 0) return principal / months;
+    
     const powerTerm = Math.pow(1 + monthlyRate, months);
     const emi = Math.round(
       (principal * monthlyRate * powerTerm) / (powerTerm - 1)
@@ -91,6 +115,16 @@ export default function Home() {
     const months = parseFloat(loanTenure || 0);
     const totalAmount = Math.round(emi * months);
     return isNaN(totalAmount) ? 0 : totalAmount;
+  };
+
+  const getPrincipalPercentage = () => {
+    const total = calculateTotalPayment();
+    if (total <= 0) return 0;
+    return Math.round((loanAmount / total) * 100);
+  };
+
+  const getInterestPercentage = () => {
+    return 100 - getPrincipalPercentage();
   };
 
   return (
@@ -135,7 +169,7 @@ export default function Home() {
             </div>
             <div className="hero-img">
               <div className="hero-img-container">
-                <img src={mainNew} alt="Loan Hero" />
+                <img src={require('../../assets/images/main-new.png')} alt="Loan Hero" />
                 <div className="hero-img-glow"></div>
               </div>
             </div>
@@ -241,11 +275,30 @@ export default function Home() {
                     <p>Adjust the values to calculate your EMI</p>
                   </div>
                   
+                  <div className="loan-type-selector">
+                    <label className="input-label">
+                      <span>Loan Type</span>
+                      <div className="loan-type-grid">
+                        {loanTypes.map((type) => (
+                          <button
+                            key={type.value}
+                            type="button"
+                            className={`loan-type-btn ${loanType === type.value ? 'active' : ''}`}
+                            onClick={() => handleLoanTypeChange(type.value)}
+                          >
+                            <span className="loan-type-icon">{type.icon}</span>
+                            <span className="loan-type-label">{type.label}</span>
+                          </button>
+                        ))}
+                      </div>
+                    </label>
+                  </div>
+                  
                   <div className="input-group">
                     <label className="input-label">
                       <div className="label-row">
                         <span>Loan Amount</span>
-                        <span className="value-display">₹ {formatCurrency(loanAmount || 0)}</span>
+                        <span className={`value-display ${isUpdating ? 'updating' : ''}`}>₹ {formatCurrency(loanAmount)}</span>
                       </div>
                       <div className="slider-container">
                         <input
@@ -253,13 +306,25 @@ export default function Home() {
                           min="8500"
                           max="5000000"
                           step="1000"
-                          value={loanAmount || 8500}
-                          onChange={handleInputChange(setLoanAmount)}
+                          value={loanAmount}
+                          onChange={handleSliderChange(setLoanAmount, 8500, 5000000)}
                           className="range-slider"
                         />
                         <div className="range-labels">
                           <span>₹8.5K</span>
                           <span>₹50L</span>
+                        </div>
+                        <div className="input-field-container">
+                          <input
+                            type="number"
+                            min="8500"
+                            max="5000000"
+                            step="1000"
+                            value={loanAmount}
+                            onChange={handleInputChange(setLoanAmount)}
+                            className="number-input"
+                            placeholder="Enter amount"
+                          />
                         </div>
                       </div>
                     </label>
@@ -267,7 +332,7 @@ export default function Home() {
                     <label className="input-label">
                       <div className="label-row">
                         <span>Interest Rate</span>
-                        <span className="value-display">{interestRate || 0}%</span>
+                        <span className={`value-display ${isUpdating ? 'updating' : ''}`}>{interestRate}%</span>
                       </div>
                       <div className="slider-container">
                         <input
@@ -275,13 +340,25 @@ export default function Home() {
                           min="10"
                           max="48"
                           step="0.1"
-                          value={interestRate || 10}
-                          onChange={handleInputChange(setInterestRate)}
+                          value={interestRate}
+                          onChange={handleSliderChange(setInterestRate, 10, 48)}
                           className="range-slider"
                         />
                         <div className="range-labels">
                           <span>10%</span>
                           <span>48%</span>
+                        </div>
+                        <div className="input-field-container">
+                          <input
+                            type="number"
+                            min="10"
+                            max="48"
+                            step="0.1"
+                            value={interestRate}
+                            onChange={handleInputChange(setInterestRate)}
+                            className="number-input"
+                            placeholder="Enter rate"
+                          />
                         </div>
                       </div>
                     </label>
@@ -289,7 +366,7 @@ export default function Home() {
                     <label className="input-label">
                       <div className="label-row">
                         <span>Loan Tenure</span>
-                        <span className="value-display">{loanTenure || 0} Months</span>
+                        <span className={`value-display ${isUpdating ? 'updating' : ''}`}>{loanTenure} Months</span>
                       </div>
                       <div className="slider-container">
                         <input
@@ -297,13 +374,25 @@ export default function Home() {
                           min="6"
                           max="36"
                           step="1"
-                          value={loanTenure || 1}
-                          onChange={handleInputChange(setLoanTenure)}
+                          value={loanTenure}
+                          onChange={handleSliderChange(setLoanTenure, 6, 36)}
                           className="range-slider"
                         />
                         <div className="range-labels">
                           <span>6 Months</span>
                           <span>36 Months</span>
+                        </div>
+                        <div className="input-field-container">
+                          <input
+                            type="number"
+                            min="6"
+                            max="36"
+                            step="1"
+                            value={loanTenure}
+                            onChange={handleInputChange(setLoanTenure)}
+                            className="number-input"
+                            placeholder="Enter months"
+                          />
                         </div>
                       </div>
                     </label>
@@ -368,9 +457,36 @@ export default function Home() {
                       <div 
                         className="principal-bar"
                         style={{
-                          width: `${(loanAmount / calculateTotalPayment()) * 100}%`
+                          width: `${calculateTotalPayment() > 0 ? getPrincipalPercentage() : 0}%`
                         }}
                       ></div>
+                      <div 
+                        className="interest-bar"
+                        style={{
+                          width: `${calculateTotalPayment() > 0 ? getInterestPercentage() : 0}%`
+                        }}
+                      ></div>
+                    </div>
+                  </div>
+
+                  <div className="payment-schedule">
+                    <div className="schedule-header">
+                      <h4>Monthly Payment Schedule</h4>
+                      <span className="schedule-summary">₹{formatCurrency(calculateEMI())} × {loanTenure} months</span>
+                    </div>
+                    <div className="schedule-preview">
+                      <div className="schedule-item">
+                        <span className="schedule-month">Month 1</span>
+                        <span className="schedule-amount">₹{formatCurrency(calculateEMI())}</span>
+                      </div>
+                      <div className="schedule-item">
+                        <span className="schedule-month">Month {Math.ceil(loanTenure / 2)}</span>
+                        <span className="schedule-amount">₹{formatCurrency(calculateEMI())}</span>
+                      </div>
+                      <div className="schedule-item">
+                        <span className="schedule-month">Month {loanTenure}</span>
+                        <span className="schedule-amount">₹{formatCurrency(calculateEMI())}</span>
+                      </div>
                     </div>
                   </div>
 
