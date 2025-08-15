@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import './Header.css';
-import logo from '../../assets/images/logo.jpeg';
 import logo1 from '../../assets/images/logo1.png';
 
 function Header() {
@@ -39,9 +38,16 @@ function Header() {
     document.body.style.overflow = 'unset';
   };
 
+  // Determine header class based on scroll progress
+  const getHeaderClass = () => {
+    if (scrollProgress > 0.7) return 'header scrolled-more';
+    if (scrollProgress > 0.3) return 'header scrolled';
+    return 'header';
+  };
+
   return (
     <header 
-      className="header" 
+      className={getHeaderClass()}
       style={{
         '--scroll-progress': scrollProgress
       }}
@@ -50,8 +56,6 @@ function Header() {
         {/* Logo */}
         <Link to="/" className="logo" onClick={handleNavLinkClick}>
           <div className="logo-container">
-            {/* <span className="logo-icon">N</span>
-            <span className="logo-text">Neodhan</span> */}
             <img src={logo1} alt="Logo" />
           </div>
         </Link>

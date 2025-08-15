@@ -4,6 +4,7 @@ import PartnersCarousel from '../common/PartnersCarousel';
 import person1 from "../../assets/images/rohit.png";
 import person2 from "../../assets/images/shivam.png";
 import sahilBansal from "../../assets/images/sahil-bansal.png";
+import rahulDube from "../../assets/images/Rahul_Dube.jpeg";
 
 
 function About() {
@@ -42,6 +43,13 @@ function About() {
       company: "Co-Founder of Kosh (YC W20)",
       image: sahilBansal,
       description: "Bringing deep expertise in fintech and startup scaling from his experience at Y Combinator-backed Kosh."
+    },
+    {
+      name: "Rahul Dube",
+      role: "Advisor",
+      company: "Director, Grameen Foundation",
+      image: rahulDube,
+      description: "Bringing extensive experience in financial inclusion and microfinance from his leadership role at Grameen Foundation."
     }
   ];
 
