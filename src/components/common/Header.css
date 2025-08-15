@@ -4,112 +4,86 @@
   left: 0;
   right: 0;
   z-index: 1000;
-  background: rgba(255, 255, 255, 0.9);
-  backdrop-filter: blur(20px);
-  border-bottom: 1px solid rgba(140, 84, 161, 0.2);
-  transition: all 0.3s ease;
+  background: rgba(255, 255, 255, calc(0.9 + var(--scroll-progress, 0) * 0.05));
+  backdrop-filter: blur(calc(20px + var(--scroll-progress, 0) * 10px));
+  border-bottom: 1px solid rgba(140, 84, 161, calc(0.2 + var(--scroll-progress, 0) * 0.1));
+  box-shadow: 0 calc(0px + var(--scroll-progress, 0) * 20px) calc(0px + var(--scroll-progress, 0) * 40px) rgba(140, 84, 161, calc(0 + var(--scroll-progress, 0) * 0.25));
+  transition: all 0.1s ease;
 }
 
-.header.scrolled {
-  background: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(30px);
-  box-shadow: 0 20px 40px rgba(140, 84, 161, 0.15);
-  border-bottom: 1px solid rgba(140, 84, 161, 0.3);
+/* When scroll progress is high, apply gradient background */
+.header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(140, 84, 161, calc(var(--scroll-progress, 0) * 0.95)) 0%, rgba(174, 161, 234, calc(var(--scroll-progress, 0) * 0.95)) 100%);
+  opacity: calc(var(--scroll-progress, 0) * 0.8);
+  transition: opacity 0.1s ease;
+  pointer-events: none;
+  z-index: -1;
 }
 
-.header.scrolled-more {
-  background: linear-gradient(135deg, rgba(140, 84, 161, 0.95) 0%, rgba(174, 161, 234, 0.95) 100%);
-  backdrop-filter: blur(30px);
-  box-shadow: 0 20px 40px rgba(140, 84, 161, 0.25);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+/* Navigation link colors that adapt to background */
+.nav-link {
+  color: rgba(55, 65, 81, calc(1 - var(--scroll-progress, 0) * 0.8));
+  transition: color 0.1s ease;
+  font-weight: 500;
 }
 
-/* Default state - ensure active links are visible */
-.header .nav-link {
-  color: #374151;
+.nav-link:hover {
+  color: rgba(140, 84, 161, calc(1 - var(--scroll-progress, 0) * 0.3));
+  transition: color 0.1s ease;
 }
 
-.header .nav-link:hover {
-  color: #8c54a1;
+.nav-link.active {
+  color: rgba(140, 84, 161, calc(1 - var(--scroll-progress, 0) * 0.2));
+  font-weight: 600;
+  transition: color 0.1s ease;
 }
 
-.header .nav-link.active {
-  color: #8c54a1 !important;
+/* When scroll progress is high, text becomes white with proper contrast */
+.nav-link {
+  color: rgba(55, 65, 81, calc(1 - var(--scroll-progress, 0) * 0.8)) !important;
+}
+
+.nav-link:hover {
+  color: rgba(255, 255, 255, calc(var(--scroll-progress, 0) * 0.9 + 0.1)) !important;
+}
+
+.nav-link.active {
+  color: rgba(255, 255, 255, calc(var(--scroll-progress, 0) * 0.95 + 0.05)) !important;
   font-weight: 600;
 }
 
-.header .nav-text::after {
-  background: linear-gradient(135deg, #8c54a1 0%, #aea1ea 100%);
+.nav-text::after {
+  background: linear-gradient(135deg, 
+    rgba(140, 84, 161, calc(0.8 - var(--scroll-progress, 0) * 0.8)) 0%, 
+    rgba(174, 161, 234, calc(0.4 - var(--scroll-progress, 0) * 0.4)) 100%);
+  transition: background 0.1s ease;
 }
 
-/* Scrolled state */
-.header.scrolled .nav-link {
-  color: #374151;
+/* Contact button transitions with better contrast */
+.contact-button {
+  background: rgba(140, 84, 161, calc(0.1 + var(--scroll-progress, 0) * 0.1));
+  border: 1px solid rgba(140, 84, 161, calc(0.3 + var(--scroll-progress, 0) * 0.2));
+  color: rgba(140, 84, 161, calc(1 - var(--scroll-progress, 0) * 0.3));
+  transition: all 0.1s ease;
 }
 
-.header.scrolled .nav-link:hover,
-.header.scrolled .nav-link.active {
-  color: #8c54a1 !important;
+.contact-button:hover {
+  background: rgba(140, 84, 161, calc(0.2 + var(--scroll-progress, 0) * 0.1));
+  border-color: rgba(140, 84, 161, calc(0.5 + var(--scroll-progress, 0) * 0.2));
+  box-shadow: 0 15px 30px rgba(140, 84, 161, calc(0.2 + var(--scroll-progress, 0) * 0.1));
+  color: rgba(140, 84, 161, calc(1 - var(--scroll-progress, 0) * 0.2));
 }
 
-.header.scrolled .nav-link.active {
-  font-weight: 600;
-  text-shadow: 0 0 8px rgba(140, 84, 161, 0.3);
-}
-
-.header.scrolled .nav-text::after {
-  background: linear-gradient(135deg, rgba(140, 84, 161, 0.8) 0%, rgba(174, 161, 234, 0.4) 100%);
-}
-
-.header.scrolled .contact-button {
-  background: rgba(140, 84, 161, 0.1);
-  border: 1px solid rgba(140, 84, 161, 0.3);
-  color: #8c54a1;
-}
-
-.header.scrolled .contact-button:hover {
-  background: rgba(140, 84, 161, 0.2);
-  border-color: rgba(140, 84, 161, 0.5);
-  box-shadow: 0 15px 30px rgba(140, 84, 161, 0.2);
-}
-
-.header.scrolled .hamburger .bar {
-  background: #374151;
-}
-
-/* Scrolled more state - ensure active links are visible on dark background */
-.header.scrolled-more .nav-link {
-  color: rgba(255, 255, 255, 0.9);
-}
-
-.header.scrolled-more .nav-link:hover {
-  color: white;
-}
-
-.header.scrolled-more .nav-link.active {
-  color: white !important;
-  font-weight: 600;
-  text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
-}
-
-.header.scrolled-more .nav-text::after {
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0.4) 100%);
-}
-
-.header.scrolled-more .contact-button {
-  background: rgba(255, 255, 255, 0.2);
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  color: white;
-}
-
-.header.scrolled-more .contact-button:hover {
-  background: rgba(255, 255, 255, 0.3);
-  border-color: rgba(255, 255, 255, 0.5);
-  box-shadow: 0 15px 30px rgba(255, 255, 255, 0.2);
-}
-
-.header.scrolled-more .hamburger .bar {
-  background: white;
+/* Hamburger bar transitions */
+.hamburger .bar {
+  background: rgba(55, 65, 81, calc(1 - var(--scroll-progress, 0) * 0.5));
+  transition: background 0.1s ease;
 }
 
 .header-content {
@@ -222,7 +196,6 @@
 .nav-link.active {
   color: #8c54a1;
   font-weight: 600;
-  text-shadow: 0 0 8px rgba(140, 84, 161, 0.3);
 }
 
 /* Contact Button */
@@ -308,55 +281,41 @@
   z-index: 1000;
 }
 
-/* Default mobile menu state */
-.mobile-menu .mobile-link {
-  color: #374151;
+/* Mobile menu transitions with better contrast */
+.mobile-menu {
+  background: rgba(255, 255, 255, calc(0.98 + var(--scroll-progress, 0) * 0.02));
+  transition: background 0.1s ease;
 }
 
-.mobile-menu .mobile-link:hover,
-.mobile-menu .mobile-link.active {
-  color: #8c54a1;
+.mobile-link {
+  color: rgba(55, 65, 81, calc(1 - var(--scroll-progress, 0) * 0.8));
+  transition: color 0.1s ease;
+  font-weight: 500;
 }
 
-.mobile-menu .mobile-link.active {
+.mobile-link:hover {
+  color: rgba(140, 84, 161, calc(1 - var(--scroll-progress, 0) * 0.3));
+  transition: color 0.1s ease;
+}
+
+.mobile-link.active {
+  color: rgba(140, 84, 161, calc(1 - var(--scroll-progress, 0) * 0.2));
   font-weight: 600;
+  transition: color 0.1s ease;
 }
 
-/* Scrolled state mobile menu */
-.header.scrolled .mobile-menu {
-  background: rgba(255, 255, 255, 0.98);
+/* When scroll progress is high, mobile links become white */
+.mobile-link {
+  color: rgba(55, 65, 81, calc(1 - var(--scroll-progress, 0) * 0.8)) !important;
 }
 
-.header.scrolled .mobile-link {
-  color: #374151;
+.mobile-link:hover {
+  color: rgba(255, 255, 255, calc(var(--scroll-progress, 0) * 0.9 + 0.1)) !important;
 }
 
-.header.scrolled .mobile-link:hover,
-.header.scrolled .mobile-link.active {
-  color: #8c54a1;
-}
-
-.header.scrolled .mobile-link.active {
+.mobile-link.active {
+  color: rgba(255, 255, 255, calc(var(--scroll-progress, 0) * 0.95 + 0.05)) !important;
   font-weight: 600;
-}
-
-/* Scrolled more state mobile menu */
-.header.scrolled-more .mobile-menu {
-  background: linear-gradient(135deg, rgba(140, 84, 161, 0.98) 0%, rgba(174, 161, 234, 0.98) 100%);
-}
-
-.header.scrolled-more .mobile-link {
-  color: rgba(255, 255, 255, 0.9);
-}
-
-.header.scrolled-more .mobile-link:hover {
-  color: white;
-}
-
-.header.scrolled-more .mobile-link.active {
-  color: white;
-  font-weight: 600;
-  text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
 }
 
 .mobile-menu.show {
