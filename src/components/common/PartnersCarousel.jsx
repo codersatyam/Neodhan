@@ -1,14 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import './PartnersCarousel.css';
 import kosh from "../../assets/images/kosh.png";
-import payme2 from "../../assets/images/payme2.png";
+import payme from "../../assets/images/payme.png";
 import midhaCap from "../../assets/images/midha_cap.png";
 import niviloans from "../../assets/images/niviloans.png";
-import payme from "../../assets/images/payme.png";
 import keshvacredit from "../../assets/images/keshvacredit.jpeg";
 import grameenFoundation from "../../assets/images/grameen-foundation.jpg";
-import spheetiFin from "../../assets/images/spheeti_fin.jpeg";
-import spheetiFin2 from "../../assets/images/spheeti_fin2.jpeg";
+import spheeti from "../../assets/images/spheeti.png";
+import niyo from "../../assets/images/niyo.png";
 
 const PartnersCarousel = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -21,7 +20,7 @@ const PartnersCarousel = () => {
     },
     {
       name: "PayMe",
-      logo: payme2,
+      logo: payme,
       description: "Digital Payment Solutions"
     },
     {
@@ -35,11 +34,6 @@ const PartnersCarousel = () => {
       description: "Tailored Loan Solutions"
     },
     {
-      name: "PayMe",
-      logo: payme,
-      description: "Payment Gateway"
-    },
-    {
       name: "KeshvaCredit",
       logo: keshvacredit,
       description: "Credit Solutions"
@@ -51,13 +45,13 @@ const PartnersCarousel = () => {
     },
     {
       name: "Spheeti Fintech",
-      logo: spheetiFin,
+      logo: spheeti,
       description: "Fintech Solutions"
     },
     {
-      name: "Spheeti",
-      logo: spheetiFin2,
-      description: "Digital Finance"
+      name: "Niyo",
+      logo: niyo,
+      description: "Digital Banking Solutions"
     }
   ];
 
