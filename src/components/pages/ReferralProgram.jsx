@@ -2,52 +2,64 @@ import React, { useState } from 'react';
 import './ReferralProgram.css';
 
 const ReferralProgram = () => {
-  const [activeTab, setActiveTab] = useState('saas');
+  const [activeTab, setActiveTab] = useState('financial');
 
-  const referralProducts = {
-    saas: [
-      {
-        name: 'AI-Powered Infrastructure',
-        commission: '₹10,000 - ₹25,000',
-        description: 'High-value commissions for enterprise SaaS referrals',
-        icon: '🤖',
-        requirements: 'Business requirements, technical specs'
-      },
-      {
-        name: 'Financial Analytics Platform',
-        commission: '₹15,000 - ₹35,000',
-        description: 'Premium commissions for analytics platform',
-        icon: '📈',
-        requirements: 'Data requirements, integration needs'
-      },
-      {
-        name: 'Digital Banking Solutions',
-        commission: '₹20,000 - ₹50,000',
-        description: 'Maximum earnings for enterprise solutions',
-        icon: '🏦',
-        requirements: 'Banking license, compliance docs'
-      }
-    ]
-  };
-
-  const testimonials = [
+  const financialProducts = [
     {
-      name: 'Priya Sharma',
-      role: 'Tech Consultant',
-      earnings: '₹2,45,000',
-      text: 'The referral program has been a game-changer for my income. Neodhan\'s platform makes it so easy to refer clients and track earnings.'
+      name: 'Personal Loans',
+      commission: 'Attractive commissions',
+      description: 'Help customers get quick personal loans with competitive rates',
+      icon: '💰',
+      requirements: 'Basic financial knowledge'
     },
     {
-      name: 'Rajesh Kumar',
-      role: 'Business Consultant',
-      earnings: '₹3,67,000',
-      text: 'I\'ve earned over ₹3.5 lakhs in just 6 months through their SaaS referrals. The commission structure is very attractive.'
+      name: 'Business Loans',
+      commission: 'High-value commissions',
+      description: 'Connect businesses with MSME and business loan solutions',
+      icon: '🏢',
+      requirements: 'Business networking skills'
     },
     {
-      name: 'Anita Patel',
-      role: 'IT Solutions Provider',
-      earnings: '₹1,89,000',
-      text: 'Enterprise SaaS referrals have been my best source of income. Neodhan\'s process is smooth and payments are always on time.'
+      name: 'Property Loans',
+      commission: 'Premium commissions',
+      description: 'Assist customers with home and property financing',
+      icon: '🏠',
+      requirements: 'Real estate knowledge'
+    },
+    {
+      name: 'Payroll Services',
+      commission: 'Recurring commissions',
+      description: 'Help businesses streamline their payroll processes',
+      icon: '💼',
+      requirements: 'HR knowledge'
+    }
+  ];
+
+  const benefits = [
+    {
+      title: 'Unlock extra income for all your needs',
+      description: 'Earn money by helping others access financial solutions',
+      icon: '💸'
+    },
+    {
+      title: 'Work from Anywhere & Anytime',
+      description: 'You don\'t need to go to an office or follow fixed working hours—we are flexible',
+      icon: '🌍'
+    },
+    {
+      title: 'Zero Investment Business',
+      description: 'Find customers and earn money online without investment like you always wanted',
+      icon: '🚀'
+    },
+    {
+      title: 'Instant Payout',
+      description: 'No more waiting for weeks to get your sales earning! Get your online earning the moment your sale is success',
+      icon: '⚡'
+    },
+    {
+      title: 'Attend Trainings',
+      description: 'Get trained by our experts and enroll for online courses to learn how to sell and earn money online',
+      icon: '🎓'
     }
   ];
 
@@ -68,28 +80,70 @@ const ReferralProgram = () => {
       <section className="referral-hero">
         <div className="referral-container">
           <div className="referral-hero-content">
-            <div className="referral-tag">Earn with Neodhan</div>
+            <div className="referral-tag">Made for India, Made in India</div>
             <h1 className="referral-title">
-              Join Our <span className="gradient-text">Referral Program</span>
+              Sell Financial Products & <span className="gradient-text">Earn Real Money Online!</span>
             </h1>
             <p className="referral-subtitle">
-              Earn attractive commissions by referring businesses for our cutting-edge Tech SaaS solutions. 
-              Start earning from day one with our comprehensive referral program.
+              Join our financial products referral program and start earning attractive commissions by helping customers access loans, 
+              business solutions, and financial services. Start earning from day one!
             </p>
+            
+            {/* Mobile Phone UPI Payment Visualization */}
+            <div className="mobile-payment-visual">
+              <div className="phone-mockup">
+                <div className="phone-screen">
+                  <div className="upi-payment">
+                    <div className="payment-header">
+                      <div className="bank-logo">🏦</div>
+                      <div className="payment-title">UPI Payment Success</div>
+                    </div>
+                    <div className="payment-amount">
+                      <span className="amount-label">You have earned</span>
+                      <span className="amount-value">₹30,000</span>
+                    </div>
+                    <div className="payment-status">
+                      <span className="status-icon">✅</span>
+                      <span className="status-text">Payment Successful</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
             <div className="referral-stats">
               <div className="referral-stat">
-                <span className="stat-number">₹50,000+</span>
+                <span className="stat-number">₹15k-20k</span>
                 <span className="stat-label">Average Monthly Earnings</span>
               </div>
               <div className="referral-stat">
-                <span className="stat-number">500+</span>
+                <span className="stat-number">30+</span>
                 <span className="stat-label">Active Referrers</span>
               </div>
-              <div className="referral-stat">
-                <span className="stat-number">₹2.5Cr+</span>
-                <span className="stat-label">Total Payouts</span>
-              </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Benefits Section */}
+      <section className="benefits-section">
+        <div className="referral-container">
+          <div className="section-header">
+            <div className="section-tag">Why Choose Us</div>
+            <h2>Unlock Your Earning Potential</h2>
+            <p className="section-description">
+              Join thousands of successful referrers and start earning today with our comprehensive benefits.
+            </p>
+          </div>
+          
+          <div className="benefits-grid">
+            {benefits.map((benefit, index) => (
+              <div key={index} className="benefit-card">
+                <div className="benefit-icon">{benefit.icon}</div>
+                <h3>{benefit.title}</h3>
+                <p>{benefit.description}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -114,7 +168,7 @@ const ReferralProgram = () => {
             <div className="step-card">
               <div className="step-icon">2</div>
               <h3>Refer & Share</h3>
-              <p>Share our solutions with potential clients in your network</p>
+              <p>Share our financial products with potential customers in your network</p>
             </div>
             <div className="step-card">
               <div className="step-icon">3</div>
@@ -125,72 +179,26 @@ const ReferralProgram = () => {
         </div>
       </section>
 
-      {/* Products Section */}
+      {/* Financial Products Section */}
       <section className="products-section">
         <div className="referral-container">
           <div className="section-header">
-            <div className="section-tag">Our Solutions</div>
-            <h2>Empowering India's lending ecosystem with AI-powered embedded finance</h2>
+            <div className="section-tag">Our Financial Products</div>
+            <h2>Empowering India's Financial Ecosystem</h2>
             <p className="section-description">
-              We provide comprehensive technology solutions for the financial sector.
+              We provide comprehensive financial solutions for individuals and businesses across India.
             </p>
           </div>
 
           <div className="solutions-grid">
-            <div className="solution-card">
-              <div className="solution-icon">🤖</div>
-              <h3>AI-Powered Infrastructure</h3>
-            </div>
-            <div className="solution-card">
-              <div className="solution-icon">🏦</div>
-              <h3>Financial Technology Solutions</h3>
-            </div>
-            <div className="solution-card">
-              <div className="solution-icon">📊</div>
-              <h3>Embedded Finance Platform</h3>
-            </div>
-            <div className="solution-card">
-              <div className="solution-icon">🔗</div>
-              <h3>Enterprise Integration Services</h3>
-            </div>
-            <div className="solution-card">
-              <div className="solution-icon">💼</div>
-              <h3>Digital Transformation Solutions</h3>
-            </div>
-            <div className="solution-card">
-              <div className="solution-icon">🔍</div>
-              <h3>Advanced Analytics & Reporting</h3>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Testimonials */}
-      <section className="testimonials-section">
-        <div className="referral-container">
-          <div className="section-header">
-            <div className="section-tag">Success Stories</div>
-            <h2>What Our Referrers Say</h2>
-            <p className="section-description">
-              Hear from our top performers and their success stories.
-            </p>
-          </div>
-
-          <div className="testimonials-grid">
-            {testimonials.map((testimonial, index) => (
-              <div key={index} className="testimonial-card">
-                <div className="testimonial-content">
-                  <p>"{testimonial.text}"</p>
-                  <div className="testimonial-author">
-                    <div className="author-info">
-                      <h4>{testimonial.name}</h4>
-                      <span>{testimonial.role}</span>
-                    </div>
-                    <div className="author-earnings">
-                      <span className="earnings-label">Total Earnings</span>
-                      <span className="earnings-amount">{testimonial.earnings}</span>
-                    </div>
-                  </div>
+            {financialProducts.map((product, index) => (
+              <div key={index} className="solution-card">
+                <div className="solution-icon">{product.icon}</div>
+                <h3>{product.name}</h3>
+                <p>{product.description}</p>
+                <div className="product-commission">{product.commission}</div>
+                <div className="product-requirements">
+                  <strong>Requirements:</strong> {product.requirements}
                 </div>
               </div>
             ))}
@@ -203,7 +211,7 @@ const ReferralProgram = () => {
         <div className="referral-container">
           <div className="cta-card">
             <h2>Ready to Start Earning?</h2>
-            <p>Join thousands of successful referrers and start earning today.</p>
+            <p>Join thousands of successful referrers and start earning today with our financial products referral program.</p>
             <div className="cta-buttons">
               <a href="mailto:founders@neodhan.com" className="cta-primary">Contact Us</a>
               <button className="cta-secondary">Learn More</button>
