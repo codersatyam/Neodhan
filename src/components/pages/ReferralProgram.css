@@ -125,6 +125,108 @@
   margin-right: auto;
 }
 
+/* Mobile Payment Visualization */
+.mobile-payment-visual {
+  margin: 4rem 0;
+  display: flex;
+  justify-content: center;
+}
+
+.phone-mockup {
+  width: 280px;
+  height: 500px;
+  background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+  border-radius: 40px;
+  padding: 20px;
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+  position: relative;
+  transform: perspective(1000px) rotateY(-15deg) rotateX(5deg);
+  transition: transform 0.3s ease;
+}
+
+.phone-mockup:hover {
+  transform: perspective(1000px) rotateY(-10deg) rotateX(2deg);
+}
+
+.phone-screen {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 25px;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  text-align: center;
+}
+
+.upi-payment {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 20px;
+  padding: 30px;
+  color: #333;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  animation: paymentSuccess 2s ease-in-out infinite;
+}
+
+@keyframes paymentSuccess {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+.payment-header {
+  margin-bottom: 20px;
+}
+
+.bank-logo {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.payment-title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #8c54a1;
+}
+
+.payment-amount {
+  margin-bottom: 20px;
+}
+
+.amount-label {
+  display: block;
+  font-size: 0.9rem;
+  color: #666;
+  margin-bottom: 5px;
+}
+
+.amount-value {
+  display: block;
+  font-size: 2.5rem;
+  font-weight: 900;
+  color: #22c55e;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.payment-status {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.status-icon {
+  font-size: 1.5rem;
+}
+
+.status-text {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #22c55e;
+}
+
 .referral-stats {
   display: flex;
   justify-content: center;
@@ -209,6 +311,78 @@
   font-size: 1.125rem;
   color: var(--text-secondary);
   line-height: 1.6;
+}
+
+/* Benefits Section */
+.benefits-section {
+  padding: 6rem 2rem;
+  background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 50%, #e2e8f0 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.benefits-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.benefit-card {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(20px);
+  border: 2px solid rgba(140, 84, 161, 0.2);
+  border-radius: 2rem;
+  padding: 3rem 2rem;
+  text-align: center;
+  box-shadow: 0 20px 40px rgba(140, 84, 161, 0.1);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.benefit-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(140, 84, 161, 0.05) 0%, rgba(174, 161, 234, 0.05) 100%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.benefit-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  background: rgba(255, 255, 255, 1);
+  border-color: rgba(140, 84, 161, 0.4);
+  box-shadow: 0 25px 50px rgba(140, 84, 161, 0.2);
+}
+
+.benefit-card:hover::before {
+  opacity: 1;
+}
+
+.benefit-icon {
+  font-size: 3rem;
+  margin-bottom: 2rem;
+  display: block;
+}
+
+.benefit-card h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+  line-height: 1.3;
+}
+
+.benefit-card p {
+  color: var(--text-secondary);
+  line-height: 1.6;
+  font-size: 1.1rem;
 }
 
 /* How It Works Section */
@@ -348,301 +522,35 @@
   font-size: 1.1rem;
   font-weight: 600;
   color: #1e293b;
-  margin: 0;
+  margin: 0 0 1rem 0;
   line-height: 1.4;
 }
 
-.tabs-container {
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-.tabs {
-  display: flex;
-  justify-content: center;
-  gap: 1rem;
-  margin-bottom: 3rem;
-}
-
-.tab {
-  padding: 1rem 2rem;
-  background: rgba(255, 255, 255, 0.9);
-  border: 2px solid rgba(140, 84, 161, 0.2);
-  border-radius: 100px;
-  color: var(--text-primary);
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  backdrop-filter: blur(10px);
-}
-
-.tab:hover {
-  background: rgba(255, 255, 255, 1);
-  border-color: rgba(140, 84, 161, 0.4);
-  transform: translateY(-2px);
-}
-
-.tab.active {
-  background: var(--gradient-1);
-  color: white;
-  border-color: transparent;
-  box-shadow: 0 8px 25px rgba(140, 84, 161, 0.3);
-}
-
-.products-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-  gap: 2rem;
-}
-
-.product-card {
-  background: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(20px);
-  border: 2px solid rgba(140, 84, 161, 0.2);
-  border-radius: 2rem;
-  padding: 2.5rem;
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  position: relative;
-  overflow: hidden;
-}
-
-.product-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: linear-gradient(135deg, rgba(140, 84, 161, 0.05) 0%, rgba(174, 161, 234, 0.05) 100%);
-  opacity: 0;
-  transition: opacity 0.4s ease;
-}
-
-.product-card:hover {
-  transform: translateY(-8px) scale(1.02);
-  background: rgba(255, 255, 255, 1);
-  border-color: rgba(140, 84, 161, 0.4);
-  box-shadow: 0 25px 50px rgba(140, 84, 161, 0.2);
-}
-
-.product-card:hover::before {
-  opacity: 1;
-}
-
-.product-icon {
-  font-size: 3rem;
-  margin-bottom: 1.5rem;
-}
-
-.product-card h3 {
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: var(--text-primary);
-  margin-bottom: 1rem;
-}
-
-.commission {
-  font-size: 1.25rem;
-  font-weight: 900;
-  color: #8c54a1;
-  margin-bottom: 1rem;
-  background: var(--gradient-1);
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-.product-card p {
+.solution-card p {
   color: var(--text-secondary);
   line-height: 1.6;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
 }
 
-.requirements {
-  font-size: 0.875rem;
-  color: var(--text-secondary);
-  background: rgba(140, 84, 161, 0.1);
-  padding: 1rem;
-  border-radius: 1rem;
-  border-left: 4px solid #8c54a1;
-}
-
-/* Earnings Section */
-.earnings-section {
-  padding: 6rem 2rem;
-  background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 50%, #e2e8f0 100%);
-  position: relative;
-  overflow: hidden;
-}
-
-.dashboard-grid {
-  display: grid;
-  grid-template-columns: 2fr 1fr;
-  gap: 3rem;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-.earnings-card, .stats-card {
-  background: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(20px);
-  border: 2px solid rgba(140, 84, 161, 0.2);
-  border-radius: 2rem;
-  padding: 2.5rem;
-  box-shadow: 0 20px 40px rgba(140, 84, 161, 0.1);
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.earnings-card:hover, .stats-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 25px 50px rgba(140, 84, 161, 0.2);
-}
-
-.earnings-card h3, .stats-card h3 {
-  font-size: 1.5rem;
+.product-commission {
+  font-size: 1rem;
   font-weight: 700;
-  color: var(--text-primary);
-  margin-bottom: 2rem;
-}
-
-.earnings-chart {
-  display: flex;
-  align-items: end;
-  gap: 1rem;
-  height: 200px;
-}
-
-.earning-bar {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.5rem;
-}
-
-.bar {
-  width: 100%;
-  background: var(--gradient-1);
-  border-radius: 0.5rem;
-  position: relative;
-  transition: all 0.3s ease;
-  min-height: 20px;
-}
-
-.bar:hover {
-  transform: scaleY(1.1);
-}
-
-.amount {
-  position: absolute;
-  top: -30px;
-  left: 50%;
-  transform: translateX(-50%);
-  font-size: 0.875rem;
-  font-weight: 600;
-  color: #8c54a1;
-  white-space: nowrap;
-}
-
-.month {
-  font-size: 0.875rem;
-  color: var(--text-secondary);
-  font-weight: 500;
-}
-
-.stats-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1.5rem;
-}
-
-.stat-item {
-  text-align: center;
-  padding: 1.5rem;
-  background: rgba(140, 84, 161, 0.05);
-  border-radius: 1rem;
-  border: 1px solid rgba(140, 84, 161, 0.1);
-}
-
-.stat-value {
-  display: block;
-  font-size: 1.5rem;
-  font-weight: 900;
   color: #8c54a1;
   margin-bottom: 0.5rem;
-}
-
-.stat-label {
-  font-size: 0.875rem;
-  color: var(--text-secondary);
-  font-weight: 500;
-}
-
-/* Referral Code Section */
-.referral-code-section {
-  padding: 4rem 2rem;
-  background: linear-gradient(135deg, #ffffff 0%, #f8fafc 50%, #f1f5f9 100%);
-  position: relative;
-  overflow: hidden;
-}
-
-.code-card {
-  background: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(20px);
-  border: 2px solid rgba(140, 84, 161, 0.2);
-  border-radius: 2rem;
-  padding: 3rem;
-  text-align: center;
-  box-shadow: 0 20px 40px rgba(140, 84, 161, 0.1);
-  max-width: 600px;
-  margin: 0 auto;
-}
-
-.code-card h3 {
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: var(--text-primary);
-  margin-bottom: 2rem;
-}
-
-.code-display {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 1rem;
-  margin-bottom: 1.5rem;
-}
-
-.code {
-  font-size: 2rem;
-  font-weight: 900;
-  color: #8c54a1;
   background: rgba(140, 84, 161, 0.1);
-  padding: 1rem 2rem;
-  border-radius: 1rem;
-  border: 2px solid rgba(140, 84, 161, 0.2);
-  letter-spacing: 0.1em;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  display: inline-block;
 }
 
-.copy-btn {
-  padding: 1rem 2rem;
-  background: var(--gradient-1);
-  color: white;
-  border: none;
-  border-radius: 1rem;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.copy-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(140, 84, 161, 0.3);
-}
-
-.code-card p {
+.product-requirements {
+  font-size: 0.8rem;
   color: var(--text-secondary);
-  font-size: 1.125rem;
+  background: rgba(140, 84, 161, 0.05);
+  padding: 0.75rem;
+  border-radius: 0.5rem;
+  border-left: 3px solid #8c54a1;
 }
 
 /* Testimonials Section */
@@ -848,13 +756,18 @@
     font-size: 2.5rem;
   }
   
-  .dashboard-grid {
-    grid-template-columns: 1fr;
-    gap: 2rem;
-  }
-  
   .referral-stats {
     gap: 2rem;
+  }
+
+  .phone-mockup {
+    width: 250px;
+    height: 450px;
+  }
+
+  .benefits-grid {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
   }
 }
 
@@ -880,23 +793,6 @@
     display: none;
   }
   
-  .tabs {
-    flex-direction: column;
-    gap: 0.5rem;
-  }
-  
-  .tab {
-    width: 100%;
-  }
-  
-  .products-grid {
-    grid-template-columns: 1fr;
-  }
-  
-  .testimonials-grid {
-    grid-template-columns: 1fr;
-  }
-  
   .cta-buttons {
     flex-direction: column;
   }
@@ -907,6 +803,33 @@
   
   .cta-card h2 {
     font-size: 2rem;
+  }
+
+  .phone-mockup {
+    width: 220px;
+    height: 400px;
+    transform: perspective(800px) rotateY(-10deg) rotateX(2deg);
+  }
+
+  .phone-mockup:hover {
+    transform: perspective(800px) rotateY(-5deg) rotateX(1deg);
+  }
+
+  .upi-payment {
+    padding: 20px;
+  }
+
+  .amount-value {
+    font-size: 2rem;
+  }
+
+  .benefits-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .benefit-card {
+    padding: 2rem 1.5rem;
   }
 }
 
@@ -923,16 +846,51 @@
     font-size: 1.75rem;
   }
   
-  .step-card, .product-card, .testimonial-card {
+  .step-card, .testimonial-card {
     padding: 1.5rem;
   }
-  
-  .code {
-    font-size: 1.5rem;
-    padding: 0.75rem 1.5rem;
+
+  .phone-mockup {
+    width: 200px;
+    height: 350px;
+    transform: none;
+    margin: 0 auto;
   }
-  
-  .earnings-chart {
-    height: 150px;
+
+  .phone-mockup:hover {
+    transform: none;
+  }
+
+  .phone-screen {
+    padding: 20px;
+  }
+
+  .upi-payment {
+    padding: 15px;
+  }
+
+  .amount-value {
+    font-size: 1.8rem;
+  }
+
+  .payment-title {
+    font-size: 1rem;
+  }
+
+  .benefit-card {
+    padding: 1.5rem 1rem;
+  }
+
+  .benefit-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .benefit-card h3 {
+    font-size: 1.25rem;
+  }
+
+  .benefit-card p {
+    font-size: 1rem;
   }
 } 
