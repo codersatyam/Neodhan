@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './Home.css';
 import PartnersCarousel from '../common/PartnersCarousel';
+import SEO from '../common/SEO';
 import reviewer from '../../assets/images/reviewer.png';
 
 const testimonials = [
@@ -129,6 +130,7 @@ export default function Home() {
 
   return (
     <div className="home">
+      <SEO />
       <div className="above-fold">
         {/* HERO SECTION */}
         <section className="hero-section">

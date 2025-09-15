@@ -1,23 +1,33 @@
 {
   "files": {
-    "main.css": "/static/css/main.5755edbe.css",
-    "main.js": "/static/js/main.27f09008.js",
+    "main.css": "/static/css/main.ffc986f4.css",
+    "main.js": "/static/js/main.3dc38310.js",
+    "static/media/shivam.png": "/static/media/shivam.a30e86d2b9c40c82c02c.png",
     "static/media/business.png": "/static/media/business.be73966bb5e8905440af.png",
     "static/media/payroll.png": "/static/media/payroll.319943e9a56a7f4ccf5d.png",
+    "static/media/grameen-foundation.jpg": "/static/media/grameen-foundation.4b0005ae9f9b91e03709.jpg",
     "static/media/main-new.png": "/static/media/main-new.a3295e77bdc37ea21e03.png",
+    "static/media/niviloans.png": "/static/media/niviloans.44a4e6fcb8d423241a99.png",
     "static/media/rohit.png": "/static/media/rohit.edd0c1eb82d9d3201656.png",
-    "static/media/main.png": "/static/media/main.1d9be55d829d5fab9de3.png",
+    "static/media/spheeti.png": "/static/media/spheeti.53a3cb255085da77077c.png",
+    "static/media/niyo.png": "/static/media/niyo.1afd6dd2cec8aca00a2e.png",
     "static/media/loan.png": "/static/media/loan.5ba2ddaf4334f3bb590a.png",
     "static/media/msme.png": "/static/media/msme.738d5d00e76b1fc0c5e8.png",
+    "static/media/keshvacredit.jpeg": "/static/media/keshvacredit.58844738c017735ad408.jpeg",
+    "static/media/logo1.png": "/static/media/logo1.336ca3e60d21b1a48b3e.png",
+    "static/media/payme.png": "/static/media/payme.4c6eb9ebe0186013d2b8.png",
     "static/media/property.png": "/static/media/property.fccee8537e6307a8a773.png",
+    "static/media/Rahul_Dube.jpeg": "/static/media/Rahul_Dube.359c8a2f7b19f6304f37.jpeg",
+    "static/media/sahil-bansal.png": "/static/media/sahil-bansal.383c75bd0a021bd21d41.png",
     "static/media/why.png": "/static/media/why.0ebe6b787192e5400c2c.png",
     "static/media/reviewer.png": "/static/media/reviewer.cc0f308a60828ab0f3c3.png",
+    "static/media/midha_cap.png": "/static/media/midha_cap.3833d9f3d70e88aca709.png",
     "index.html": "/index.html",
-    "main.5755edbe.css.map": "/static/css/main.5755edbe.css.map",
-    "main.27f09008.js.map": "/static/js/main.27f09008.js.map"
+    "main.ffc986f4.css.map": "/static/css/main.ffc986f4.css.map",
+    "main.3dc38310.js.map": "/static/js/main.3dc38310.js.map"
   },
   "entrypoints": [
-    "static/css/main.5755edbe.css",
-    "static/js/main.27f09008.js"
+    "static/css/main.ffc986f4.css",
+    "static/js/main.3dc38310.js"
   ]
 }
