@@ -45,11 +45,11 @@ function About() {
       description: "Bringing deep expertise in fintech and startup scaling from his experience at Y Combinator-backed Kosh."
     },
     {
-      name: "Rahul Dube",
+      name: "Coming Soon",
       role: "Advisor",
-      company: "Director, Grameen Foundation",
-      image: rahulDube,
-      description: "Bringing extensive experience in financial inclusion and microfinance from his leadership role at Grameen Foundation."
+      company: "We will add him soon",
+      image: null,
+      description: "We are excited to announce our next advisor soon. Stay tuned for updates!"
     }
   ];
 
@@ -252,7 +252,13 @@ function About() {
             <div key={index} className="advisor-card">
               <div className="advisor-card-inner">
                 <div className="advisor-image">
-                  <img src={advisor.image} alt={advisor.name} />
+                  {advisor.image ? (
+                    <img src={advisor.image} alt={advisor.name} />
+                  ) : (
+                    <div className="coming-soon-placeholder">
+                      <span>Coming Soon</span>
+                    </div>
+                  )}
                   <div className="advisor-image-glow"></div>
                 </div>
                 <div className="advisor-info">
