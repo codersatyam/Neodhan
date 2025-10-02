@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import './PartnersCarousel.css';
 import kosh from "../../assets/images/kosh.png";
 import payme from "../../assets/images/payme.png";
@@ -10,84 +10,40 @@ import spheeti from "../../assets/images/spheeti.png";
 import niyo from "../../assets/images/niyo.png";
 
 const PartnersCarousel = () => {
-  const [currentIndex, setCurrentIndex] = useState(0);
-
   const partners = [
     {
       name: "Kosh",
-      logo: kosh,
-      description: "YC W20 Fintech Platform"
+      logo: kosh
     },
     {
       name: "PayMe",
-      logo: payme,
-      description: "Digital Payment Solutions"
+      logo: payme
     },
     {
       name: "Midha Capital",
-      logo: midhaCap,
-      description: "Financial Services"
+      logo: midhaCap
     },
     {
       name: "NiviLoans",
-      logo: niviloans,
-      description: "Tailored Loan Solutions"
+      logo: niviloans
     },
     {
       name: "KeshvaCredit",
-      logo: keshvacredit,
-      description: "Credit Solutions"
+      logo: keshvacredit
     },
     {
       name: "Grameen Foundation",
-      logo: grameenFoundation,
-      description: "Financial Inclusion"
+      logo: grameenFoundation
     },
     {
       name: "Spheeti Fintech",
-      logo: spheeti,
-      description: "Fintech Solutions"
+      logo: spheeti
     },
     {
-      name: "Niyo",
-      logo: niyo,
-      description: "Digital Banking Solutions"
+      name: "Niyokraft",
+      logo: niyo
     }
   ];
-
-  // Duplicate partners for seamless loop
-  const duplicatedPartners = [...partners, ...partners];
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentIndex((prevIndex) => {
-        if (prevIndex >= partners.length) {
-          return 0;
-        }
-        return prevIndex + 1;
-      });
-    }, 3000); // Change every 3 seconds
-
-    return () => clearInterval(interval);
-  }, [partners.length]);
-
-  const handlePrev = () => {
-    setCurrentIndex((prevIndex) => {
-      if (prevIndex <= 0) {
-        return partners.length - 1;
-      }
-      return prevIndex - 1;
-    });
-  };
-
-  const handleNext = () => {
-    setCurrentIndex((prevIndex) => {
-      if (prevIndex >= partners.length - 1) {
-        return 0;
-      }
-      return prevIndex + 1;
-    });
-  };
 
   return (
     <section className="partners-section">
@@ -108,51 +64,20 @@ const PartnersCarousel = () => {
         <p className="section-description">Partnering with industry leaders to deliver exceptional financial solutions</p>
       </div>
 
-      <div className="partners-carousel-container">
-        <div className="carousel-track">
-          <button className="carousel-btn prev-btn" onClick={handlePrev}>
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-            </svg>
-          </button>
-          
-          <div className="partners-carousel-wrapper">
-            <div 
-              className="partners-carousel"
-              style={{
-                transform: `translateX(-${currentIndex * (100 / 6)}%)`
-              }}
-            >
-              {duplicatedPartners.map((partner, index) => (
-                <div key={index} className="partner-card">
-                  <div className="partner-card-inner">
-                    <div className="partner-logo">
-                      <img src={partner.logo} alt={partner.name} />
-                    </div>
-                    <div className="partner-glow"></div>
-                  </div>
-                </div>
-              ))}
+      <div className="partners-grid">
+        {partners.map((partner, index) => (
+          <div key={index} className="partner-card">
+            <div className="partner-card-inner">
+              <div className="partner-logo">
+                <img src={partner.logo} alt={partner.name} />
+              </div>
+              <div className="partner-info">
+                <h3>{partner.name}</h3>
+              </div>
+              <div className="partner-glow"></div>
             </div>
           </div>
-
-          <button className="carousel-btn next-btn" onClick={handleNext}>
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-            </svg>
-          </button>
-        </div>
-
-        {/* Progress Indicators */}
-        <div className="carousel-indicators">
-          {partners.map((_, index) => (
-            <button
-              key={index}
-              className={`indicator ${index === currentIndex ? 'active' : ''}`}
-              onClick={() => setCurrentIndex(index)}
-            />
-          ))}
-        </div>
+        ))}
       </div>
     </section>
   );

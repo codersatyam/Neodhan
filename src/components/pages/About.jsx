@@ -9,16 +9,16 @@ import rahulDube from "../../assets/images/Rahul_Dube.jpeg";
 
 function About() {
   const loanStats = [
-    { number: "₹5Cr+", label: "Loan Disbursed" },
-    { number: "1000+", label: "Happy Customers" },
-    { number: "95%", label: "Approval Rate" },
-    { number: "24hrs", label: "Fast Approval" }
+    { number: "$300B+", label: "Credit Gap Addressed" },
+    { number: "Tier 2-4", label: "India Focus" },
+    { number: "AI-First", label: "Technology Stack" },
+    { number: "DPI Compliant", label: "Digital Public Infrastructure" }
   ];
 
   const awards = [
-    { year: "2024", title: "Best Fintech Startup of the Year", organization: "India Fintech Awards" },
-    { year: "2023", title: "Excellence in Customer Service", organization: "Banking Tech Awards" },
-    { year: "2023", title: "Most Innovative Loan Platform", organization: "Financial Innovation Summit" }
+    { year: "2025", title: "Best Fintech Startup of the Year", organization: "India Fintech Awards" },
+    { year: "2025", title: "Excellence in Customer Service", organization: "Banking Tech Awards" },
+    { year: "2025", title: "Most Innovative Loan Platform", organization: "Financial Innovation Summit" }
   ];
 
   const founders = [
@@ -69,9 +69,9 @@ function About() {
         </div>
         
         <div className="hero-content">
-          <span className="section-tag">About Us</span>
-          <h1>Transforming Lives Through <span className="gradient-text">Smart Financial Solutions</span></h1>
-          <p>At Neodhan, we believe everyone deserves access to hassle-free financial solutions. Our innovative approach combines technology with personalized service to make loans accessible, transparent, and quick.</p>
+          <span className="section-tag">About Neodhan</span>
+          <h1>AI-Powered Credit Access for <span className="gradient-text">Bharat's MSMEs</span></h1>
+          <p>Neodhan is a fintech lending startup empowering MSMEs, women entrepreneurs, and SHGs in Tier 2–4 India with timely, affordable, and dignified credit. We bridge India's $300+ billion MSME credit gap using AI-driven underwriting, Early Warning System, and Digital Public Infrastructure.</p>
         </div>
       </section>
 
@@ -89,9 +89,9 @@ function About() {
         </div>
         
         <div className="section-header">
-          <span className="section-tag">Why Choose Us</span>
-          <h2>Your Trusted Partner in <span className="gradient-text">Financial Growth</span></h2>
-          <p className="section-description">Experience the difference with our AI-powered platform and customer-centric approach</p>
+          <span className="section-tag">Our MOAT</span>
+          <h2>Why Neodhan is <span className="gradient-text">Different & Strong</span></h2>
+          <p className="section-description">Our unique combination of AI-first technology, Digital Public Infrastructure, and deep understanding of Bharat's MSME ecosystem sets us apart</p>
         </div>
         <div className="features-grid">
           <div className="feature-card">
@@ -101,8 +101,8 @@ function About() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
                 </svg>
               </div>
-              <h3>Quick Processing</h3>
-              <p>Get your loan approved within 24 hours with our streamlined digital process</p>
+              <h3>AI-Driven Underwriting</h3>
+              <p>Real-time risk scoring using alternative data, bureau data, and cash-flow analysis for instant credit decisions</p>
               <div className="feature-glow"></div>
             </div>
           </div>
@@ -113,8 +113,8 @@ function About() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
                 </svg>
               </div>
-              <h3>Secure & Transparent</h3>
-              <p>Bank-grade security with clear terms and no hidden charges</p>
+              <h3>Fraud & Early Warning AI</h3>
+              <p>Proactive fraud detection and early warning systems to ensure sustainable lending practices</p>
               <div className="feature-glow"></div>
             </div>
           </div>
@@ -125,8 +125,8 @@ function About() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
                 </svg>
               </div>
-              <h3>Personal Support</h3>
-              <p>Dedicated relationship managers to guide you through the process</p>
+              <h3>Multilingual Support</h3>
+              <p>Native support for Hindi, English, Marathi, and Gujarati to serve Bharat's diverse MSME ecosystem</p>
               <div className="feature-glow"></div>
             </div>
           </div>
@@ -156,6 +156,60 @@ function About() {
               </div>
             </div>
           ))}
+        </div>
+      </section>
+
+      {/* Technology Stack Section */}
+      <section className="tech-stack-section">
+        {/* Background Animation */}
+        <div className="tech-bg-animation">
+          {[...Array(5)].map((_, i) => (
+            <span key={i} className="tech-animated-circle" style={{
+              left: `${Math.random() * 100}%`,
+              animationDelay: `${Math.random() * 4}s`,
+              animationDuration: `${3 + Math.random() * 4}s`
+            }} />
+          ))}
+        </div>
+        
+        <div className="section-header">
+          <span className="section-tag">Technology Stack</span>
+          <h2>Our <span className="gradient-text">AI-Powered Infrastructure</span></h2>
+          <p className="section-description">Leveraging cutting-edge AI technology integrated with India's Digital Public Infrastructure to deliver seamless, compliant, and scalable credit solutions across Bharat's diverse MSME landscape</p>
+        </div>
+        <div className="awards-grid">
+          <div className="award-card">
+            <div className="award-card-inner">
+              <div className="award-year">01</div>
+              <h3>AI-Driven Underwriting Engine</h3>
+              <p>Real-time risk scoring using alternative data, bureau data, and cash-flow analysis for instant credit decisions</p>
+              <div className="award-glow"></div>
+            </div>
+          </div>
+          <div className="award-card">
+            <div className="award-card-inner">
+              <div className="award-year">02</div>
+              <h3>Fraud & Early Warning AI</h3>
+              <p>Proactive fraud detection and early warning systems to ensure sustainable lending practices</p>
+              <div className="award-glow"></div>
+            </div>
+          </div>
+          <div className="award-card">
+            <div className="award-card-inner">
+              <div className="award-year">03</div>
+              <h3>Embedded Lending APIs</h3>
+              <p>Plug-and-play infrastructure for NBFCs, MFIs, and BCNs to integrate credit solutions</p>
+              <div className="award-glow"></div>
+            </div>
+          </div>
+          <div className="award-card">
+            <div className="award-card-inner">
+              <div className="award-year">04</div>
+              <h3>RegTech Alignment</h3>
+              <p>Compliance-first design with regulatory frameworks including Account Aggregator, CKYC, Open Credit Enablement Network (OCEN), Open Network for Digital Commerce (ONDC), and Unified Lending Interface (ULI)</p>
+              <div className="award-glow"></div>
+            </div>
+          </div>
         </div>
       </section>
 
