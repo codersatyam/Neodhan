@@ -86,10 +86,10 @@ function Footer() {
             <div className="footer-links-column">
               <h3>Support</h3>
               <ul>
-                <li><Link to="#">Help Center</Link></li>
-                <li><Link to="#">FAQ</Link></li>
-                <li><Link to="#">Terms of Service</Link></li>
-                <li><Link to="#">Privacy Policy</Link></li>
+                <li><Link to="/faq">FAQ</Link></li>
+                <li><Link to="/contact">Contact Us</Link></li>
+                <li><Link to="/terms-of-use">Terms of Use</Link></li>
+                <li><Link to="/privacy-policy">Privacy Policy</Link></li>
               </ul>
             </div>
 

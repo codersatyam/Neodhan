@@ -8,7 +8,7 @@ const Blog = () => {
       title: "The Future of Digital Lending in India",
       excerpt: "How technology is transforming the lending landscape and making financial services accessible to millions.",
       author: "Shivam Sharma",
-      date: "July 15, 2024",
+      date: "July 15, 2025",
       readTime: "5 min read",
       category: "Fintech",
       image: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
@@ -18,7 +18,7 @@ const Blog = () => {
       title: "Building Trust in Fintech: A Guide for Startups",
       excerpt: "Essential strategies for fintech companies to build customer trust and establish credibility in the market.",
       author: "Rohit Kumar",
-      date: "July 10, 2024",
+      date: "July 10, 2025",
       readTime: "7 min read",
       category: "Strategy",
       image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
@@ -28,7 +28,7 @@ const Blog = () => {
       title: "MSME Loans: Empowering Small Businesses",
       excerpt: "Understanding the importance of MSME financing and how digital platforms are revolutionizing access to credit.",
       author: "Shivam Sharma",
-      date: "July 5, 2024",
+      date: "July 5, 2025",
       readTime: "6 min read",
       category: "MSME",
       image: "https://images.unsplash.com/photo-1556761175-b413da4baf72?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
@@ -38,7 +38,7 @@ const Blog = () => {
       title: "The Role of AI in Loan Processing",
       excerpt: "How artificial intelligence is streamlining loan applications and improving approval rates.",
       author: "Rohit Kumar",
-      date: "June 28, 2024",
+      date: "June 28, 2025",
       readTime: "8 min read",
       category: "Technology",
       image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
@@ -48,7 +48,7 @@ const Blog = () => {
       title: "Personal Finance Tips for Young Professionals",
       excerpt: "Essential financial planning advice for millennials and Gen Z professionals starting their careers.",
       author: "Shivam Sharma",
-      date: "June 20, 2024",
+      date: "June 20, 2025",
       readTime: "4 min read",
       category: "Personal Finance",
       image: "https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
@@ -58,7 +58,7 @@ const Blog = () => {
       title: "Regulatory Compliance in Digital Lending",
       excerpt: "Navigating the complex regulatory landscape of digital lending in India.",
       author: "Rohit Kumar",
-      date: "June 15, 2024",
+      date: "June 15, 2025",
       readTime: "9 min read",
       category: "Compliance",
       image: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"

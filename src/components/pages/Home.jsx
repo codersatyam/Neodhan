@@ -7,17 +7,17 @@ import reviewer from '../../assets/images/reviewer.png';
 
 const testimonials = [
   {
-    name: 'Rahul',
-    role: 'Customer',
-    img: reviewer,
-    text: "Excellent services and amazing customer service. Team is very responsive and i really appreciate their customer relationship. I admire the promptness and instant support. I'm so thankful to the entire team for helping me when i needed it the most.",
+    name: 'Priya Sharma',
+    role: 'Kirana Store Owner',
+    img: require('../../assets/images/reviewer2.png'),
+    text: "Neodhan's AI-powered platform helped me access credit for my kirana store expansion. The multilingual support in Hindi made the process so easy, and the funds were disbursed within hours. Truly empowering for small businesses like mine.",
     stars: 5
   },
   {
-    name: 'Manoj kumar',
-    role: 'Customer',
+    name: 'Rajesh Kumar',
+    role: 'Small Manufacturer',
     img: reviewer,
-    text: "Excellent hassle-free loan service. My loan got approved, processed and disbursed in just couple of hours. Recommend to anyone who's looking for urgent loan.",
+    text: "As a small manufacturing unit owner in Tier-3 city, traditional banks never understood my business. Neodhan's AI underwriting considered my actual cash flows and alternative data. Finally, dignified credit access for Bharat's entrepreneurs!",
     stars: 5
   }
 ];
@@ -147,9 +147,9 @@ export default function Home() {
           
           <div className="hero-container">
             <div className="hero-content">
-              <span className="hero-tag">Fintech Innovation</span>
-              <h1>Transform Your <span className="gradient-text">Financial Future</span></h1>
-              <p className="hero-sub">Experience lightning-fast loan approvals with our AI-powered platform. Get funds in your account within 24 hours with zero hidden charges.</p>
+              <span className="hero-tag">AI-Powered Credit Access</span>
+              <h1>Empowering Bharat's <span className="gradient-text">MSMEs</span> with Smart Credit</h1>
+              <p className="hero-sub">Neodhan bridges India's $300+ billion MSME credit gap using AI-driven underwriting, Early Warning System, and Digital Public Infrastructure. Fast, compliant, and dignified credit for Tier 2-4 India.</p>
               <div className="hero-cta-group">
                 <Link to="/contact" className="hero-cta primary">Get Started Now</Link>
                 <Link to="/services" className="hero-cta secondary">Explore Services</Link>
@@ -161,7 +161,7 @@ export default function Home() {
                 </div>
                 <div className="stat-item">
                   <span className="stat-number">10K+</span>
-                  <span className="stat-label">Happy Customers</span>
+                  <span className="stat-label">MSMEs</span>
                 </div>
                 <div className="stat-item">
                   <span className="stat-number">95%</span>
@@ -192,9 +192,9 @@ export default function Home() {
           </div>
           
           <div className="process-header">
-            <span className="process-tag">Streamlined Process</span>
-            <h2>Get Your Loan in <span className="gradient-text">4 Simple Steps</span></h2>
-            <p className="process-description">Our AI-powered platform ensures lightning-fast processing with maximum security</p>
+            <span className="process-tag">AI-Powered Process</span>
+            <h2>Smart Credit in <span className="gradient-text">4 Steps</span></h2>
+            <p className="process-description">Our AI-driven underwriting engine combines alternative data, bureau data, and cash-flow analysis for instant, compliant credit decisions</p>
           </div>
           <div className="process-timeline">
             <div className="process-step">
@@ -206,8 +206,8 @@ export default function Home() {
                 <div className="step-glow"></div>
               </div>
               <div className="step-content">
-                <h3>Submit Application</h3>
-                <p>Fill out our intelligent online form with minimal documentation required</p>
+                <h3>Digital Application</h3>
+                <p>Submit your application through our multilingual interface supporting Hindi, English, Marathi, and Gujarati</p>
               </div>
               <div className="step-connector"></div>
             </div>
@@ -221,8 +221,8 @@ export default function Home() {
                 <div className="step-glow"></div>
               </div>
               <div className="step-content">
-                <h3>AI-Powered Review</h3>
-                <p>Our advanced AI system instantly analyzes and verifies your application</p>
+                <h3>AI Risk Assessment</h3>
+                <p>Our AI engine analyzes alternative data, bureau data, and cash-flow patterns for real-time risk scoring</p>
               </div>
               <div className="step-connector"></div>
             </div>
@@ -236,8 +236,8 @@ export default function Home() {
                 <div className="step-glow"></div>
               </div>
               <div className="step-content">
-                <h3>Instant Approval</h3>
-                <p>Receive approval decision within minutes with our real-time processing</p>
+                <h3>Compliance Check</h3>
+                <p>Automated verification through regulatory frameworks including Account Aggregator, CKYC, Open Credit Enablement Network (OCEN), and Open Network for Digital Commerce (ONDC)</p>
               </div>
               <div className="step-connector"></div>
             </div>
@@ -251,8 +251,8 @@ export default function Home() {
                 <div className="step-glow"></div>
               </div>
               <div className="step-content">
-                <h3>Quick Disbursement</h3>
-                <p>Get funds in your account within 24 hours with zero processing fees</p>
+                <h3>Instant Disbursement</h3>
+                <p>Fast, dignified credit disbursement with embedded lending APIs and fraud detection systems</p>
               </div>
             </div>
           </div>
@@ -519,9 +519,9 @@ export default function Home() {
         </div>
         
         <div className="testimonials-header">
-          <span className="testimonials-subtitle">Customer Success</span>
-          <h2 className="testimonials-title">Trusted by <span className="gradient-text">10,000+</span> Happy Customers</h2>
-          <p className="testimonials-description">Real stories from real people who transformed their financial lives with Neodhan</p>
+          <span className="testimonials-subtitle">MSME Success Stories</span>
+          <h2 className="testimonials-title">Empowering <span className="gradient-text">Bharat's Entrepreneurs</span></h2>
+          <p className="testimonials-description">Real stories from small shopkeepers, retailers, SHGs, and micro-entrepreneurs who accessed dignified credit through Neodhan</p>
         </div>
         <div className="modern-testimonials-grid">
           {testimonials.map((t, idx) => (
