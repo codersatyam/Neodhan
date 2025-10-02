@@ -160,7 +160,7 @@ export default function Home() {
                   <span className="stat-label">Loans Disbursed</span>
                 </div>
                 <div className="stat-item">
-                  <span className="stat-number">10K+</span>
+                  <span className="stat-number">1K+</span>
                   <span className="stat-label">MSMEs</span>
                 </div>
                 <div className="stat-item">
